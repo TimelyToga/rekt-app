@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Rekt</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_clear">Clear</string>
+    <string name="pick_a_center">Tap to select a pivot point</string>
+    <string name="enter_size">Enter square size: </string>
+
+</resources>
