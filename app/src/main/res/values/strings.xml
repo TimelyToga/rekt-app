@@ -5,6 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_clear">Clear</string>
     <string name="pick_a_center">Tap to select a pivot point</string>
-    <string name="enter_size">Enter square size: </string>
+    <string name="enter_size">Select square size: </string>
 
 </resources>
