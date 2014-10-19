@@ -14,6 +14,9 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.timothyblumberg.fun.rekt.ShakeDector.ShakeDetector;
+import com.timothyblumberg.fun.rekt.ShakeDector.ShakeDetectorListener;
+
 import java.util.Random;
 
 
@@ -35,6 +38,9 @@ public class MainActivity extends Activity {
     private int curXPivot;
     private int curYPivot;
     private final int progressFactor = 5;
+
+    // Shake Detector
+    ShakeDetector shakeDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +74,31 @@ public class MainActivity extends Activity {
         exampleSquareLayoutParams.width = G.SQUARE_SIZE;
         exampleSquare.setLayoutParams(exampleSquareLayoutParams);
         exampleSquare.setBackgroundColor(generateRandColor());
+
+        // Shake Detector
+        shakeDetector = new ShakeDetector(this);
+        shakeDetector.addListener(new ShakeDetectorListener() {
+            @Override
+            public void shakeDetected() {
+                clearRectangles();
+            }
+        });
+    }
+
+
+    /*
+     * These methods are needed for the ShakeDetector to work properly
+     */
+    @Override
+    protected void onResume(){
+        super.onResume();
+        shakeDetector.onResume();
+    }
+
+    @Override
+    protected void onPause(){
+        shakeDetector.onPause();
+        super.onPause();
     }
 
 
