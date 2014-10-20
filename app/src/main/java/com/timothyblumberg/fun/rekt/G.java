@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class G {
 
-    public static int SQUARE_SIZE = 25;
+    public static int SQUARE_SIZE = 250;
     public static int SCREEN_HEIGHT;
     public static int SCREEN_WIDTH;
     public static int LAST_SIZE = 50;
