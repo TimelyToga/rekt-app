@@ -12,4 +12,6 @@ public class G {
     public static int SCREEN_WIDTH;
     public static int LAST_SIZE = 50;
     public static Random rgen;
+
+    public static boolean firstTimeDrawing = true;
 }

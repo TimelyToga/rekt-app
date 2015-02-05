@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.timothyblumberg.fun.rekt.ShakeDector.ShakeDetector;
 import com.timothyblumberg.fun.rekt.ShakeDector.ShakeDetectorListener;
@@ -220,9 +221,25 @@ public class MainActivity extends Activity {
     private void setDrawingMode(){
 //        editText.setVisibility(View.INVISIBLE);
 
-        relativeLayout.setBackgroundColor(Color.BLACK);
+        if(G.firstTimeDrawing){
+            textView.setTextColor(Color.WHITE);
+            textView.setText("Draw some cool lines...");
+            Runnable r = new Runnable() {
+                @Override
+                public void run() {
+                    textView.setText("");
+                    textView.setTextColor(Color.BLACK);
+                }
+            };
+            textView.postDelayed(r, 1000);
+            Toast.makeText(this, "Shake to reset", Toast.LENGTH_SHORT).show();
+            G.firstTimeDrawing = false;
+        }
+
         firstTouchEvent = false;
+        relativeLayout.setBackgroundColor(Color.BLACK);
         drawing = true;
+
     }
 
 }
